@@ -29,6 +29,9 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(swipeLeft)
         // handleSwipe is a function down below ....
         // #selector() selects and executes that function
+        
+        originalPrice.isHidden=true
+        discountPrice.isHidden=true
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +41,29 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func calculatePrice(_ sender: UIButton) {
+        
+        let priceItem = Double(price.text!)
+        let amountOff = Double(dollarsOff.text!)
+        let discountPercentage = Double(discount.text!)
+        let otherDiscountPercentage = Double(otherDiscount.text!)
+        let taxPercentage = Double(tax.text!)
+        
+        
+        
+        let discount_amount = Double(priceItem!*(discountPercentage!/100))
+        let other_discount = Double(priceItem!*(otherDiscountPercentage!/100))
+        let tax_amount = Double(priceItem!*(taxPercentage!/100))
+        
+        let original_Price = Double((priceItem!+tax_amount))
+        let discounted_Price = Double(priceItem!-(amountOff!+discount_amount+other_discount)+tax_amount)
+        
+        
+        
+        originalPrice.text="Original Price $\(original_Price)"
+        discountPrice.text="Discount Price $\(discounted_Price)"
+        
+        originalPrice.isHidden=false
+        discountPrice.isHidden=false
     }
     
     
