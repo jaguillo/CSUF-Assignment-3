@@ -6,25 +6,18 @@
 //  Copyright © 2017 CampusUser. All rights reserved.
 //
 
-class Student {
-    var name:String
-    var letterGrade:Character
-    var isEnrolled:Bool{
-        get{
-            return true
-        }
+class Results {
+    var price:String
+    var discount:String
+    
+    
+    init(_ price:String = "",
+         _ discount:String = "") {
+        self.price = price
+        self.discount = discount
     }
     
-    init(_ name:String = "John Doe",
-         _ letterGrade:Character = "A") {
-        self.name = name
-        self.letterGrade = letterGrade
-    }
     
-    private func debug() {
-        print("Name: ", self.name)
-        print("Grade:", self.letterGrade)
-    }
     
-    static let shared: Student = Student()
+    static let shared: Results = Results()
 }
