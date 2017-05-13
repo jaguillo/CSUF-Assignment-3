@@ -8,8 +8,17 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var dollarsOff: UITextField!
+    @IBOutlet weak var discount: UITextField!
+    @IBOutlet weak var otherDiscount: UITextField!
+    @IBOutlet weak var tax: UITextField!
+    
+    @IBOutlet weak var originalPrice: UILabel!
+    @IBOutlet weak var discountPrice: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +35,11 @@ class CalculatorViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func calculatePrice(_ sender: UIButton) {
+    }
+    
     
 
    // Swipe function
