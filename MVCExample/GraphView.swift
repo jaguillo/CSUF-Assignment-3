@@ -51,8 +51,8 @@ class GraphView: UIView {
         context.fill(CGRect(x:leftguide, y:topGuide, width:screenWidth - 32.0, height:screenHeight - 96.0))
         
         // Draw Text
-        let myText = "Cyan Box"
-        let subText = "Baby blue..."
+        let myText = "Original Price"
+        let subText = "place holder"
         
         // Text Attributes
         let textAttributes = [
@@ -61,9 +61,16 @@ class GraphView: UIView {
         ]
         
         let myTextPos:CGPoint = CGPoint(x: leftguide + 16.0, y: topGuide + 16.0)
+        let myOtherTextPos:CGPoint = CGPoint(x: rightGuide - screenWidth/3, y: topGuide + 16.0)
         
         myText.draw(at: myTextPos, withAttributes: textAttributes)
             subText.draw(at: CGPoint(x: leftguide + 16.0, y: topGuide + 32.0), withAttributes: textAttributes)
+        
+        let secondText = "You Saved"
+        let secondSubText = "Place Holder"
+        
+        secondText.draw(at: myOtherTextPos, withAttributes: textAttributes)
+        secondSubText.draw(at: CGPoint(x: rightGuide - screenWidth/3, y: topGuide + 32.0), withAttributes: textAttributes)
         
     }
  
