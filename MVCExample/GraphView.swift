@@ -48,7 +48,13 @@ class GraphView: UIView {
         //context.setFillColor(red: 0.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         
-        context.fill(CGRect(x:leftguide, y:topGuide, width:screenWidth - 32.0, height:screenHeight - 96.0))
+        context.fill(CGRect(x:leftguide/2, y:topGuide, width:screenWidth/2 - 16, height:screenHeight - 96.0))
+        
+        context.setFillColor(0x64516D)
+        context.fill(CGRect(x:rightGuide/2, y:topGuide, width:screenWidth/2 - 4.0, height:screenHeight/2 - 88.0))
+        
+        context.setFillColor(0x30016A)
+        context.fill(CGRect(x:rightGuide/2, y:botGuide/2, width:screenWidth/2 - 4.0, height:screenHeight/2-8))
         
         // Draw Text
         let myText = "Original Price"
@@ -62,6 +68,7 @@ class GraphView: UIView {
         
         let myTextPos:CGPoint = CGPoint(x: leftguide + 16.0, y: topGuide + 16.0)
         let myOtherTextPos:CGPoint = CGPoint(x: rightGuide - screenWidth/3, y: topGuide + 16.0)
+        let youPayTextPos:CGPoint = CGPoint(x: rightGuide - screenWidth/3, y: botGuide/2 + 16.0)
         
         myText.draw(at: myTextPos, withAttributes: textAttributes)
             subText.draw(at: CGPoint(x: leftguide + 16.0, y: topGuide + 32.0), withAttributes: textAttributes)
@@ -71,6 +78,12 @@ class GraphView: UIView {
         
         secondText.draw(at: myOtherTextPos, withAttributes: textAttributes)
         secondSubText.draw(at: CGPoint(x: rightGuide - screenWidth/3, y: topGuide + 32.0), withAttributes: textAttributes)
+        
+        let thirdText = "You Pay"
+        let thirdSubText = "Place Holder"
+        
+        thirdText.draw(at: youPayTextPos, withAttributes: textAttributes)
+        thirdSubText.draw(at: CGPoint(x: rightGuide - screenWidth/3, y: botGuide/2 + 32.0), withAttributes: textAttributes)
         
     }
  
